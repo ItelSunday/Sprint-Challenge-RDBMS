@@ -1,13 +1,26 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex('projects')
+  .del()
     .then(function () {
       // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
+      return knex('projects').insert([
+        { id: 1,
+          name: 'projectRow1',
+          description: 'Normal people believe that if it ain’t broke, don’t fix it. Engineers believe that if it ain’t broke, it doesn’t have enough features yet.',
+          completed: false
+        },
+        { id: 2,
+          name: 'projectRow2',
+          description: 'Normal people believe that if it ain’t broke, don’t fix it. Engineers believe that if it ain’t broke, it doesn’t have enough features yet.',
+          completed: false
+        },
+        { id: 3,
+          name: 'projectRow3',
+          description: 'Normal people believe that if it ain’t broke, don’t fix it. Engineers believe that if it ain’t broke, it doesn’t have enough features yet.',
+          completed: false
+        }
       ]);
     });
 };
