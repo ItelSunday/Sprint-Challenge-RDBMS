@@ -1,13 +1,10 @@
 exports.up = function(knex, Promise) {
     return knex.schema.createTable('projects', tbl => {
-        //primary key called id, integer, auto-increment
-        
-        tbl.increments();
-        tbl.string('title', 50)
-        tbl.text('description')
+        tbl.increments();  //primary key called id, integer, auto-increment
+        tbl.string('name', 50).notNullable().unique(); 
+        tbl.text('description').notNullable();
         tbl.boolean('completed')
-        tbl.notNullable()
-        tbl.unique(); 
+        // .defaultTo(false)
         
     }); 
     };
